@@ -1,0 +1,19 @@
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv("C:/Users/admin/Downloads/archive (5)/Housing_Modified.csv")
+df
+df.shape
+df.describe()
+df.info()
+sns.jointplot(x="garagepl",y="lotsize",data=df)
+np.percentile(df.bedrooms,[99])
+uv = np.percentile(df.bedrooms,[99])[0]
+df[(df.bedrooms>uv)]
+df.bedrooms[(df.bedrooms>3*uv)]=3*uv
+sns.countplot(x="fullbase",data=df)
+sns.countplot(x="driveway",data=df)
+sns.jointplot(x="airco",y="price",data=df)
+df.corr()
+df.head()
